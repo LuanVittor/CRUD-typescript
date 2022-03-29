@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../../interfaces/userInterface';
 
-const levelValidation = (req: Request, res: Response, next: NextFunction) => {
+const levelValid = (req: Request, res: Response, next: NextFunction) => {
   const { level } = req.body as User;
   if (!level) return res.status(400).json({ error: 'Level is required' });
   if (typeof level !== 'number') {
@@ -13,4 +13,4 @@ const levelValidation = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default levelValidation;
+export default levelValid;

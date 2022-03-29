@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../../interfaces/userInterface';
 
-const classValidation = (req: Request, res: Response, next: NextFunction) => {
+const classValid = (req: Request, res: Response, next: NextFunction) => {
   const { classe } = req.body as User;
   if (!classe) return res.status(400).json({ error: 'Classe is required' });
   if (typeof classe !== 'string') {
@@ -13,4 +13,4 @@ const classValidation = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default classValidation;
+export default classValid;

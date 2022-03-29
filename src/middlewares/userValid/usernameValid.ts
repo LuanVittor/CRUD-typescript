@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../../interfaces/userInterface';
 
-const usernameValidation = (req: Request, res: Response, next: NextFunction) => {
+const usernameValid = (req: Request, res: Response, next: NextFunction) => {
   const { username } = req.body as User;
   if (!username) return res.status(400).json({ error: 'Username is required' });
   if (typeof username !== 'string') {
@@ -13,4 +13,4 @@ const usernameValidation = (req: Request, res: Response, next: NextFunction) => 
   next();
 };
 
-export default usernameValidation;
+export default usernameValid;

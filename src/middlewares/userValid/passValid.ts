@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../../interfaces/userInterface';
 
-const passwordValidation = (req: Request, res: Response, next: NextFunction) => {
+const passwordValid = (req: Request, res: Response, next: NextFunction) => {
   const { password } = req.body as User;
   if (!password) return res.status(400).json({ error: 'Password is required' });
   if (typeof password !== 'string') {
@@ -13,4 +13,4 @@ const passwordValidation = (req: Request, res: Response, next: NextFunction) => 
   next();
 };
 
-export default passwordValidation;
+export default passwordValid;
