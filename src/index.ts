@@ -5,7 +5,7 @@ const PORT = 3000;
 
 const productsController = new ProductController();
 
-app.get('/produts', productsController.getAll);
+app.get('/products', productsController.getAll);
 
 const server = app.listen(PORT, () => console.log(
   `Server is running on PORT: ${PORT}`,
