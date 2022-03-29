@@ -11,7 +11,7 @@ class UserController {
     const payload: User = { username, classe, level, password };
     await this.userService.createUser(payload);
     const token = generateJwt({ username, password });
-    return res.status(200).json({ token });
+    return res.status(201).json({ token });
   }; 
 }
 

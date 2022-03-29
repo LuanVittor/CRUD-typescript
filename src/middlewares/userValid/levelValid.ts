@@ -7,7 +7,7 @@ const levelValid = (req: Request, res: Response, next: NextFunction) => {
   if (typeof level !== 'number') {
     return res.status(422).json({ error: 'Level must be a number' });
   }
-  if (level < 0) {
+  if (level < 1) {
     return res.status(422).json({ error: 'Level must be greater than 0' });
   }
   next();
