@@ -1,4 +1,4 @@
-import { Pool, ResultSetHeader } from 'mysql2/promise';
+import { Pool, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import Product from '../interfaces/productInterface';
 
 export default class ProducctModel {
@@ -21,5 +21,12 @@ export default class ProducctModel {
     const [dataInserted] = result;
     const { insertId } = dataInserted;
     return { id: insertId, ...payload };
+  }
+
+  public async productById(id: number): Promise<Product[]> {
+    const query = 'SELECT * FROM Trybesmith.Products WHERE orderId = ?;';
+    const [productArray] = await this.connection.execute<RowDataPacket[]>(query, [id]);
+
+    return productArray as Product[];
   }
 }
