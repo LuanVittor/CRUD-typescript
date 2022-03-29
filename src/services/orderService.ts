@@ -27,6 +27,18 @@ class OrderService {
     const result = await Promise.all(responseArray);
     return result;
   }
+
+  public async create({ products }: Order, token: string): Promise<OrderResponse> {
+    const { id }: JwtUser = decodeToken(token);
+    const insertId: number = await this.orderModel.create(id);
+    products.forEach(async (product: number) => {
+      await this.productModel.update(product, insertId);
+    });
+    return { order: {
+      userId: id,
+      products,
+    } };
+  }
 }
 
 export default OrderService;

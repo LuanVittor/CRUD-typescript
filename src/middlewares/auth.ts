@@ -15,4 +15,4 @@ const validToken = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default validToken;
+export default validToken
