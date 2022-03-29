@@ -13,7 +13,7 @@ class LoginController {
       return res.status(401).json({ error: 'Username or password invalid' });
     } 
     const token = generateJwt({ username, password });
-    return res.status(201).json({ token });
+    return res.status(200).json({ token });
   };
 }
 
