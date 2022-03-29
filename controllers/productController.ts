@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import ProducctModel from '../models/product';
+import ProductService from '../services/productService';
 
 class ProductController {
-  constructor(private productModel = new ProducctModel()) { }
+  constructor(private productService = new ProductService()) { }
 
   public getAll = async (_req: Request, res: Response) => {
-    const products = await this.productModel.getAll();
+    const products = await this.productService.getAll();
     res.status(200).json(products);
   };
 }
