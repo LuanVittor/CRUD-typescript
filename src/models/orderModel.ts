@@ -8,7 +8,7 @@ export default class OrderModel {
     this.connection = connection;
   }
 
-  public async getlAllOrders(): Promise<Orders[]> {
+  public async getAllOrders(): Promise<Orders[]> {
     const query = 'SELECT * FROM Trybesmith.Orders';
     const [result] = await this.connection.execute(query);
     return result as Orders[];
