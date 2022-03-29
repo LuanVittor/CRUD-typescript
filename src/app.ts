@@ -23,6 +23,6 @@ app.get('/products', productsController.getAll);
 app.post('/products', nameValidation, amountValidation, productsController.createProduct);
 app.post('/users', usernameValid, classValid, levelValid, passwordValid, userController.createUser);
 app.get('/orders', orderController.getAllOrders);
-app.post('/login', loginController.getUser);
+app.post('/login',usernameValid, passwordValid, loginController.getUser);
 
 export default app;

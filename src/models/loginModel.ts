@@ -9,7 +9,7 @@ export default class LoginModel {
   }
 
   public async getUser(username: string): Promise<Login[]> {
-    const query = 'SELECT username, password FROM Trybesmith.Users';
+    const query = 'SELECT username, password FROM Trybesmith.Users WHERE username = ?';
     const [result] = await this.connection.execute<RowDataPacket[]>(query, [username]);
     return result as Login[];
   }
