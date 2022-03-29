@@ -14,7 +14,8 @@ class ProductController {
     const { name, amount } = req.body as Product;
     const payload = { name, amount };
     const created = await this.productService.createProduct(payload);
-    return res.status(201).json(created);
+    const result = { item: created };
+    return res.status(201).json(result);
   };
 }
 
