@@ -26,6 +26,6 @@ app.post('/products', nameValidation, amountValidation, productsController.creat
 app.post('/users', usernameValid, classValid, levelValid, passwordValid, userController.createUser);
 app.get('/orders', orderController.getAllOrders);
 app.post('/login', usernameValid, passwordValid, loginController.getUser);
-app.post('/orders', validToken, productValid);
+app.post('/orders', validToken, productValid, orderController.create);
 
 export default app;

@@ -1,5 +1,7 @@
+import readToken from '../helpers/readtoken';
 import Orders from '../interfaces/orderInterface';
 import Product from '../interfaces/productInterface';
+import UserJwt from '../interfaces/userJwt';
 import connection from '../models/connection';
 import OrderModel from '../models/orderModel';
 import ProducctModel from '../models/product';
@@ -28,16 +30,13 @@ class OrderService {
     return result;
   }
 
-  public async create({ products }: Order, token: string): Promise<OrderResponse> {
-    const { id }: JwtUser = decodeToken(token);
+  public async create({ products }: Orders, token: string): Promise<Orders> {
+    const { id }: UserJwt = readToken(token);
     const insertId: number = await this.orderModel.create(id);
-    products.forEach(async (product: number) => {
-      await this.productModel.update(product, insertId);
+    products.forEach(async (elem: number) => {
+      await this.productModel.update(elem, insertId);
     });
-    return { order: {
-      userId: id,
-      products,
-    } };
+    return { userId: id, products };
   }
 }
 
