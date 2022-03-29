@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import Product from '../interfaces/productInterface';
+import Product from '../../interfaces/productInterface';
 
 const nameValidation = (req: Request, res: Response, next: NextFunction) => {
   const { name } = req.body as Product;

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import Product from '../interfaces/productInterface';
+import Product from '../../interfaces/productInterface';
 
 const amountValidation = (req: Request, res: Response, next: NextFunction) => {
   const { amount } = req.body as Product;
