@@ -8,9 +8,9 @@ export default class LoginModel {
     this.connection = connection;
   }
 
-  public async getUser(id: number): Promise<Login[]> {
+  public async getUser(username: string): Promise<Login[]> {
     const query = 'SELECT username, password FROM Trybesmith.Users';
-    const [result] = await this.connection.execute<RowDataPacket[]>(query, [id]);
+    const [result] = await this.connection.execute<RowDataPacket[]>(query, [username]);
     return result as Login[];
   }
 }

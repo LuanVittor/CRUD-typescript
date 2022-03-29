@@ -322,7 +322,7 @@ describe("4 - Crie um endpoint para listar todos os pedidos", () => {
   });
 });
 
-describe.skip("5 - Crie um endpoint para o login de pessoas usuárias", () => {
+describe.only("5 - Crie um endpoint para o login de pessoas usuárias", () => {
   beforeAll(async () => {
     await recreateDatabase();
   });
