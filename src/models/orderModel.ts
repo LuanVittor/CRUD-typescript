@@ -13,4 +13,8 @@ export default class OrderModel {
     const [result] = await this.connection.execute<RowDataPacket[]>(query);
     return result as Orders[];
   }
+
+  public async createOrder(): Promise<Orders[]> {
+    
+  }
 }

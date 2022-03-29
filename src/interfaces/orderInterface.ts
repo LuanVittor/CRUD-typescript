@@ -1,5 +1,5 @@
 interface Orders {
-  id: number,
+  id?: number,
   userId: number,
   products: number[],
 }
