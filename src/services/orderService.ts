@@ -1,7 +1,7 @@
 import readToken from '../helpers/readtoken';
 import Orders from '../interfaces/orderInterface';
 import Product from '../interfaces/productInterface';
-import UserJwt from '../interfaces/userJwt';
+// import { UserJwt } from '../interfaces/userJwt';
 import connection from '../models/connection';
 import OrderModel from '../models/orderModel';
 import ProducctModel from '../models/product';
@@ -31,7 +31,9 @@ class OrderService {
   }
 
   public async create({ products }: Orders, token: string): Promise<Orders> {
-    const { id }: UserJwt = readToken(token);
+    const { data: { username } } = readToken(token);
+    
+    const id = await this.orderModel.getUser(username);
     const insertId: number = await this.orderModel.create(id);
     products.forEach(async (elem: number) => {
       await this.productModel.update(elem, insertId);

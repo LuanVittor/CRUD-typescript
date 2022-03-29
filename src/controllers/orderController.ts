@@ -9,14 +9,14 @@ class OrderController {
     return res.status(200).json(orders);
   };
 
-  public async create(req: Request, res: Response) {
+  public create = async (req: Request, res: Response) => {
     const token: string | undefined = req.headers.authorization;
     if (token) {
       const order = await this.orderService.create(req.body, token);
       return res.status(201).json({ order });
     }
     return res.status(500).json({ error: 'Internal server error' });
-  }
+  };
 }
 
 export default OrderController;
