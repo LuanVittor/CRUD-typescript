@@ -1,4 +1,4 @@
-import ProductController from '../controllers/productController';
+import ProductController from './controllers/productController';
 import app from './app';
 
 const PORT = 3000;
