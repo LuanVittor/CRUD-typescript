@@ -375,7 +375,7 @@ describe("5 - Crie um endpoint para o login de pessoas usuárias", () => {
   });
 });
 
-describe.only("6 - Crie um endpoint para o cadastro de um pedido", () => {
+describe("6 - Crie um endpoint para o cadastro de um pedido", () => {
   let token: string;
 
   beforeEach(async () => {

@@ -35,9 +35,10 @@ class OrderService {
     
     const id = await this.orderModel.getUser(username);
     const insertId: number = await this.orderModel.create(id);
-    products.forEach(async (elem: number) => {
+    const promisse = products.map(async (elem: number) => {
       await this.productModel.update(elem, insertId);
     });
+    await Promise.all(promisse);
     return { userId: id, products };
   }
 }
