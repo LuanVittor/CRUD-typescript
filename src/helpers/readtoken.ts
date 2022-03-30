@@ -1,5 +1,5 @@
 import Jwt from 'jsonwebtoken';
-import UserJwt from '../interfaces/userJwt';
+import { UserJwt } from '../interfaces/userJwt';
 
 const JWT_SECRET = 'SenhaSegura456!';
 
